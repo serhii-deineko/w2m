@@ -1,0 +1,68 @@
+{
+    "manifest_version": 3,
+    "name": "Website to make",
+    "description": "A Google Chrome extension designed to streamline website creation for int.prophone.com",
+    "version": "5.0.1",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "downloads",
+        "storage",
+        "windows",
+        "tabs"
+    ],
+    "host_permissions": [
+        "*://*.prophone.com/*",
+        "*://*.facebook.com/*",
+        "*://*.instagram.com/*",
+        "*://*.instagram.fpoz4-1.fna.fbcdn.net/*",
+        "*://*.scontent.fpoz4-1.fna.fbcdn.net/*",
+        "*://*.bbb.org/*",
+        "*://*.yelp.com/*",
+        "*://*.google.com/*",
+        "*://*.nextdoor.com/*",
+        "*://*.homeadvisor.com/*",
+        "*://*.thumbtack.com/*",
+        "*://*.localhost/*"
+    ],
+    "icons": {
+        "16": "pic.png",
+        "48": "pic.png",
+        "128": "pic.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.prophone.com/*",
+                "*://*.facebook.com/*",
+                "*://*.instagram.com/*",
+                "*://*.instagram.fpoz4-1.fna.fbcdn.net/*",
+                "*://*.scontent.fpoz4-1.fna.fbcdn.net/*",
+                "*://*.bbb.org/*",
+                "*://*.yelp.com/*",
+                "*://*.google.com/*",
+                "*://*.nextdoor.com/*",
+                "*://*.homeadvisor.com/*",
+                "*://*.thumbtack.com/*",
+                "*://*.localhost/*"
+            ],
+            "js": [
+                "prophone.js",
+                "social.js",
+                "default.js",
+                "love.js",
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
